@@ -36,4 +36,3 @@ class Database:
             print("No table found!")
             return []
         return return_data
-

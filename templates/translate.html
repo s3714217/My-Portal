@@ -1,0 +1,32 @@
+{% include 'header.html' %}
+<!doctype html>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h4 class="card-title">Translator</h4>
+      <img src="https://www.gizmochina.com/wp-content/uploads/2021/04/Google-Translate-Logo-Featured.jpg" style= "height: 150px;"class="card-img-top" alt="...">
+                
+      <h5 style="text-align: center;">Enter the word</h5>
+      <div style="padding-bottom: 25px;"></div>
+
+      <form action = "/api/translate" method = "post">
+      <div style="text-align: center;"><input name="word" type="text" style="text-align:center; width: 100%;" placeholder="Word"></div>
+      <div style="padding-bottom: 25px;"></div>
+      <h5 style="text-align: center;">Select the language</h5>
+      <div style="padding-bottom: 25px;"></div>
+      
+      <select name = "language" class="form-select" aria-label="Default select example" style="width: 100%;">
+        <option value="en" selected>English (Default)</option>
+        {% for c in code_list %}
+        <option value= {{c}} > {{code_list[c].capitalize() }}</option>
+        {% endfor %}
+
+      </select>
+
+      <div style="padding-top: 25px;"></div>
+      <div style="text-align: center;"><input name="submit" type="submit" value= "Translate"style="text-align:center; width: 50%;"></div>
+      </form>
+    </div>
+</div>
+</html>
+
+{% include 'footer.html' %}
